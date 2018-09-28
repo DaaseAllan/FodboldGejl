@@ -5,8 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour {
 
-    public void LoadScene (string scenename)
+    public Animator Animator;
+    private string scene_name;
+
+    public void FadeScene (string scenename)
     {
-        SceneManager.LoadScene(scenename);
+        scene_name = scenename;
+        Animator.SetTrigger("FadeOut");
+    }
+
+    public void LoadScene()
+    {
+        SceneManager.LoadScene(scene_name);
     }
 }
