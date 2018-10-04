@@ -212,6 +212,7 @@ MonoBehaviour:
   rightPlayers: {fileID: 357013283}
   leftPlayers: {fileID: 696096298}
   runSpeed: 5
+  test: 
 --- !u!50 &271626629
 Rigidbody2D:
   serializedVersion: 4
@@ -835,6 +836,7 @@ GameObject:
   - component: {fileID: 1845107492}
   - component: {fileID: 1845107491}
   - component: {fileID: 1845107495}
+  - component: {fileID: 1845107496}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
@@ -873,7 +875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13908f5dd5471d44ba816be6facfb952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
 --- !u!212 &1845107493
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -948,6 +950,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0.00000011920929, y: 0.031755447}
   m_Size: {x: 1.875109, y: 1.9174492}
   m_Direction: 0
+--- !u!114 &1845107496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1845107490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ae8c9377aa61b48be0346d77aa01e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeAmplifier: 2
+  mainCamera: {fileID: 1203683310}
 --- !u!1001 &2035671741
 Prefab:
   m_ObjectHideFlags: 0
