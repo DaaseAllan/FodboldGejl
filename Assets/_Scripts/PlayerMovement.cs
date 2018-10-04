@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour {
     float moveLimiter = 0.7f;
     public float runSpeed = 20;
 
+    public string test;
+
 
 
     void Start()
@@ -36,13 +38,16 @@ public class PlayerMovement : MonoBehaviour {
 
     void Update()
     {
+        test = Input.GetAxisRaw(playerNumber + "HorizontalR").ToString();
+
         horizontalR = Input.GetAxisRaw(playerNumber + "HorizontalR");
-        verticalR = Input.GetAxisRaw(playerNumber + "VerticalR");
+        verticalR = Input.GetAxisRaw(playerNumber + "VerticalR") * -1;
 
         horizontalL = Input.GetAxisRaw(playerNumber + "HorizontalL");
-        verticalL = Input.GetAxisRaw(playerNumber + "VerticalL");
+        verticalL = Input.GetAxisRaw(playerNumber + "VerticalL") * -1;
 
         Debug.Log(horizontalL);
+        Debug.Log(horizontalR);
     }
 
     void FixedUpdate()
