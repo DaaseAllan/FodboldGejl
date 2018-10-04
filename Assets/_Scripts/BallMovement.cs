@@ -6,6 +6,7 @@ public class BallMovement : MonoBehaviour {
 
     Rigidbody2D rb;
     public float speed;
+    public float acceleration;
 
     private Vector3 direction;
     private float x;
@@ -22,15 +23,12 @@ public class BallMovement : MonoBehaviour {
 	
     void FixedUpdate()
     {
+        speed = speed + acceleration * 0.01f;
         rb.velocity = speed * rb.velocity.normalized;
     }
 
-    private void movement(Vector3 direction)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {        
     }
 }
