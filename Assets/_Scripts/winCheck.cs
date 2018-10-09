@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class winCheck : MonoBehaviour {
 
@@ -12,6 +13,7 @@ public class winCheck : MonoBehaviour {
     public GameObject ball;
 
     public GameObject gameHandler;
+    public GameObject scoreCounter;
 
     public float timerCD;
 
@@ -19,6 +21,8 @@ public class winCheck : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+        scoreCounter = GameObject.FindGameObjectWithTag("ScoreCounter");
 
 	}
 	
@@ -37,12 +41,16 @@ public class winCheck : MonoBehaviour {
                 print(collision.transform.parent.parent.name);
                 if (collision.transform.parent.parent.name == "Player1")
                 {
+                    scoreCounter.GetComponent<ScoreCounter>().player1Score++;
                     win(wintext1);
                 }
                 else if (collision.transform.parent.parent.name == "Player2")
                 {
                     win(wintext2);
                 }
+
+                //Gør sådan at den ikke trigger flere gange.
+                checkwin = true;
             }
         }
     }
@@ -56,9 +64,8 @@ public class winCheck : MonoBehaviour {
     public IEnumerator ResetPositions()
     {
         yield return new WaitForSeconds(timerCD);
-        print("hejhej1234");
-        gameHandler.GetComponent<GameHandling>().SetPositions();
-        checkwin = true;
+        SceneManager.LoadScene("Main");
+
     }
 }
 
