@@ -26,9 +26,4 @@ public class BallMovement : MonoBehaviour {
         speed = speed + acceleration * 0.01f;
         rb.velocity = speed * rb.velocity.normalized;
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }
 }

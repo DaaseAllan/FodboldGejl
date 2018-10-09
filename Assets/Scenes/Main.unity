@@ -442,7 +442,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -4.5, y: 0.5}
+  m_ConnectedAnchor: {x: -4.5000005, y: 0.5}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -995,7 +995,7 @@ HingeJoint2D:
   m_BreakTorque: Infinity
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0, y: 0}
-  m_ConnectedAnchor: {x: -4.5, y: -0.5}
+  m_ConnectedAnchor: {x: -4.5000005, y: -0.5}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1642,7 +1642,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1838723688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 357013284}
@@ -1719,8 +1719,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13908f5dd5471d44ba816be6facfb952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  acceleration: 0
+  speed: 5
+  acceleration: 0.4
 --- !u!212 &1845107493
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1774,7 +1774,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1845107490}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.96, y: -1.1, z: -1.6476368}
+  m_LocalPosition: {x: 0, y: 0, z: -1.6476368}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1819,8 +1819,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ba738bb4f0ea1b4dab5056806ff43d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wintext1: {fileID: 0}
-  wintext2: {fileID: 0}
+  wintext1: {fileID: 1779943817}
+  wintext2: {fileID: 1833649573}
+  Player1: {fileID: 0}
+  Player2: {fileID: 0}
+  ball: {fileID: 1845107490}
+  gameHandler: {fileID: 1853617522}
+  timerCD: 5
+--- !u!1 &1853617522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1853617524}
+  - component: {fileID: 1853617523}
+  m_Layer: 0
+  m_Name: GameHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1853617523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1853617522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dc386f3a7a15564898b0ee32b5bcab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 1838723688}
+  player2: {fileID: 0}
+  ball: {fileID: 1853617522}
+--- !u!4 &1853617524
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1853617522}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1285886, y: -0.30055106, z: -0.62109375}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2035671741
 Prefab:
   m_ObjectHideFlags: 0

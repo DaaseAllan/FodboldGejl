@@ -7,11 +7,19 @@ public class winCheck : MonoBehaviour {
     public GameObject wintext1;
     public GameObject wintext2;
 
+    public GameObject Player1;
+    public GameObject Player2;
+    public GameObject ball;
+
+    public GameObject gameHandler;
+
     public float timerCD;
+
+    private bool checkwin = false;
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
@@ -22,19 +30,19 @@ public class winCheck : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "GoalCheck")
+        if(!checkwin)
         {
-
-            print(collision.transform.parent.parent.name);
-            if (collision.transform.parent.parent.name == "Player1")
+            if (collision.gameObject.tag == "GoalCheck")
             {
-                print("Player1Win");
-
-                win(wintext1);
-            }
-            else if(collision.transform.parent.parent.name == "Player2")
-            {
-                win(wintext2);
+                print(collision.transform.parent.parent.name);
+                if (collision.transform.parent.parent.name == "Player1")
+                {
+                    win(wintext1);
+                }
+                else if (collision.transform.parent.parent.name == "Player2")
+                {
+                    win(wintext2);
+                }
             }
         }
     }
@@ -42,13 +50,15 @@ public class winCheck : MonoBehaviour {
     void win(GameObject epicwintext)
     {
         epicwintext.SetActive(true);
-        StartCoroutine(StartCountdown());
+        StartCoroutine(ResetPositions());
     }
 
-    public IEnumerator StartCountdown()
+    public IEnumerator ResetPositions()
     {
         yield return new WaitForSeconds(timerCD);
         print("hejhej1234");
+        gameHandler.GetComponent<GameHandling>().SetPositions();
+        checkwin = true;
     }
 }
 
