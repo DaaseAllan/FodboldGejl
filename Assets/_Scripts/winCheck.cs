@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class winCheck : MonoBehaviour {
 
+    public GameObject wintext1;
+    public GameObject wintext2;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -24,8 +27,19 @@ public class winCheck : MonoBehaviour {
             if (collision.transform.parent.parent.name == "Player1")
             {
                 print("Player1Win");
+
+                win(wintext1);
+            }
+            else if(collision.transform.parent.parent.name == "Player2")
+            {
+                win(wintext2);
             }
         }
+    }
+
+    void win(GameObject epicwintext)
+    {
+        epicwintext.SetActive(true);
     }
 }
 
