@@ -46,8 +46,6 @@ public class PlayerMovement : MonoBehaviour {
         horizontalL = Input.GetAxisRaw(playerNumber + "HorizontalL");
         verticalL = Input.GetAxisRaw(playerNumber + "VerticalL") * -1;
 
-        Debug.Log(horizontalL);
-        Debug.Log(horizontalR);
     }
 
     void FixedUpdate()
