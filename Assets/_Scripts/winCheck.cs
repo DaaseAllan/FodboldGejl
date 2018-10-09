@@ -7,6 +7,8 @@ public class winCheck : MonoBehaviour {
     public GameObject wintext1;
     public GameObject wintext2;
 
+    public float timerCD;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -40,6 +42,13 @@ public class winCheck : MonoBehaviour {
     void win(GameObject epicwintext)
     {
         epicwintext.SetActive(true);
+        StartCoroutine(StartCountdown());
+    }
+
+    public IEnumerator StartCountdown()
+    {
+        yield return new WaitForSeconds(timerCD);
+        print("hejhej1234");
     }
 }
 
