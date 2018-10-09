@@ -1303,13 +1303,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1046153792}
-  m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: -0.42}
   m_LocalScale: {x: 0.20000023, y: 0.2000002, z: 0.20000033}
   m_Children: []
   m_Father: {fileID: 357013284}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: -180, z: 0}
 --- !u!212 &1046153794
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2027,6 +2027,8 @@ MonoBehaviour:
   playerNumber: 0
   rightPlayers: {fileID: 696096298}
   leftPlayers: {fileID: 357013283}
+  rightSprite: {fileID: 1896144208}
+  leftSprite: {fileID: 1046153792}
   runSpeed: 5
   test: 
 --- !u!1 &1845107490
