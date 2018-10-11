@@ -7,6 +7,7 @@ public class BallMovement : MonoBehaviour {
     Rigidbody2D rb;
     public float speed;
     public float acceleration;
+    public float ballcountdown;
 
     private Vector3 direction;
     private float x;
@@ -15,12 +16,19 @@ public class BallMovement : MonoBehaviour {
 
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
-        x = Random.Range(-0.2f,0.2f) * speed;
+        StartCoroutine(StartBall());
+    }
+
+    public IEnumerator StartBall()
+    {
+        yield return new WaitForSeconds(ballcountdown);
+        print("hejhej1234");
+        x = Random.Range(-0.2f, 0.2f) * speed;
         y = Random.Range(-0.2f, 0.2f) * speed;
-        direction = new Vector3(x,y,0f);
+        direction = new Vector3(x, y, 0f);
         rb.AddForce(direction);
     }
-	
+
     void FixedUpdate()
     {
         speed = speed + acceleration * 0.01f;

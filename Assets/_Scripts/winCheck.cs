@@ -56,6 +56,8 @@ public class winCheck : MonoBehaviour {
                 }
                 else if (collision.transform.parent.parent.name == "Player2")
                 {
+                    scoreCounter.GetComponent<ScoreCounter>().player2Score++;
+
                     win(wintext2, p1score);
                 }
 
