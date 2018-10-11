@@ -8,8 +8,12 @@ public class GameHandling : MonoBehaviour {
     public GameObject player2;
     public GameObject ball;
 
+    public bool startup = true;
+
 	// Use this for initialization
 	void Start () {
+        startup = true;
+        StartCoroutine(GameStart());
 	}
 	
 	// Update is called once per frame
@@ -17,5 +21,10 @@ public class GameHandling : MonoBehaviour {
 		
 	}
 
+    public IEnumerator GameStart()
+    {
+        yield return new WaitForSeconds(3);
+        startup = false;
+    }
 
 }

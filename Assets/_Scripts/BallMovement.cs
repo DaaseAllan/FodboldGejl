@@ -16,7 +16,7 @@ public class BallMovement : MonoBehaviour {
 
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
-        StartCoroutine(StartBall());
+        //StartCoroutine(StartBall());
     }
 
     public IEnumerator StartBall()
