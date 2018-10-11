@@ -60,11 +60,12 @@ public class winCheck : MonoBehaviour {
                     scoreCounter.GetComponent<ScoreCounter>().player1Score++;
 
                     win(wintext1, p2score, 1);
+                    ScoreUpdate();
                 }
                 else if (collision.transform.parent.parent.name == "Player2")
                 {
                     scoreCounter.GetComponent<ScoreCounter>().player2Score++;
-
+                    ScoreUpdate();
                     win(wintext2, p1score, 0);
                 }
                 
@@ -78,10 +79,20 @@ public class winCheck : MonoBehaviour {
     void win(GameObject epicwintext, GameObject score, int soundClip)
     {
         epicwintext.SetActive(true);
-        Text scoreText = score.GetComponent<Text>();
-        scoreText.text = "Score: " + scoreCounter.GetComponent<ScoreCounter>().player1Score;
+
+        //Udkommenteret da det ikke virkede, fordi at begge scores blev hentet fra P1.
+        //Text scoreText = score.GetComponent<Text>();
+        //scoreText.text = "Score: " + scoreCounter.GetComponent<ScoreCounter>().player1Score;
         SoundHandler.soundHandler.playSound(soundClip);
         StartCoroutine(ResetPositions());
+
+    }
+
+    void ScoreUpdate()
+    {
+        //Steven please en dag forklar mig hvorfor at de her fungerer modsat
+        p1score.GetComponent<Text>().text = "Score: " + scoreCounter.GetComponent<ScoreCounter>().player2Score;
+        p2score.GetComponent<Text>().text = "Score: " + scoreCounter.GetComponent<ScoreCounter>().player1Score;
     }
 
     public IEnumerator ResetPositions()
