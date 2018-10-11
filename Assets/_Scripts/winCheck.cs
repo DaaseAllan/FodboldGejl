@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class winCheck : MonoBehaviour {
 
@@ -15,6 +16,9 @@ public class winCheck : MonoBehaviour {
     public GameObject gameHandler;
     public GameObject scoreCounter;
 
+    public GameObject p2score;
+    public GameObject p1score;
+
     public float timerCD;
 
     private bool checkwin = false;
@@ -24,7 +28,12 @@ public class winCheck : MonoBehaviour {
 
         scoreCounter = GameObject.FindGameObjectWithTag("ScoreCounter");
 
-	}
+        Text p1text = p1score.GetComponent<Text>();
+        Text p2text = p2score.GetComponent<Text>();
+
+        p1text.text = "Score: " + scoreCounter.GetComponent<ScoreCounter>().player2Score;
+        p2text.text = "Score: " + scoreCounter.GetComponent<ScoreCounter>().player1Score;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -42,11 +51,12 @@ public class winCheck : MonoBehaviour {
                 if (collision.transform.parent.parent.name == "Player1")
                 {
                     scoreCounter.GetComponent<ScoreCounter>().player1Score++;
-                    win(wintext1);
+
+                    win(wintext1, p2score);
                 }
                 else if (collision.transform.parent.parent.name == "Player2")
                 {
-                    win(wintext2);
+                    win(wintext2, p1score);
                 }
 
                 //Gør sådan at den ikke trigger flere gange.
@@ -55,9 +65,11 @@ public class winCheck : MonoBehaviour {
         }
     }
 
-    void win(GameObject epicwintext)
+    void win(GameObject epicwintext, GameObject score)
     {
         epicwintext.SetActive(true);
+        Text scoreText = score.GetComponent<Text>();
+        scoreText.text = "Score: " + scoreCounter.GetComponent<ScoreCounter>().player1Score;
         StartCoroutine(ResetPositions());
     }
 
