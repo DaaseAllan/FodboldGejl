@@ -8,6 +8,12 @@ public class GameHandling : MonoBehaviour {
     public GameObject player2;
     public GameObject ball;
 
+    //Countdown objekter
+    public GameObject CD3;
+    public GameObject CD2;
+    public GameObject CD1;
+    public GameObject CDEpic;
+
     public bool startup = true;
 
 	// Use this for initialization
@@ -23,7 +29,17 @@ public class GameHandling : MonoBehaviour {
 
     public IEnumerator GameStart()
     {
-        yield return new WaitForSeconds(3);
+        CD3.SetActive(true);
+        yield return new WaitForSeconds(1);
+
+        CD2.SetActive(true);
+        yield return new WaitForSeconds(1);
+
+        CD1.SetActive(true);
+        yield return new WaitForSeconds(1);
+
+        CDEpic.SetActive(true);
+        yield return new WaitForSeconds(1);
         startup = false;
     }
 
