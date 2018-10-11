@@ -53,14 +53,12 @@ public class PlayerMovement : MonoBehaviour {
 
         //Rotate spriteS
         float angleR = Mathf.Atan2(horizontalR, verticalR) * Mathf.Rad2Deg;
-        print(angleR);
         if(angleR != 180)
         {
             rightSprite.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -angleR));
         }
 
         float angleL = Mathf.Atan2(horizontalL, verticalL) * Mathf.Rad2Deg;
-        print(angleL);
         if (angleL != 180)
         {
             leftSprite.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -angleL));
