@@ -29,16 +29,21 @@ public class GameHandling : MonoBehaviour {
 
     public IEnumerator GameStart()
     {
+        SoundHandler s = SoundHandler.soundHandler;
         CD3.SetActive(true);
+        s.playSound(2);
         yield return new WaitForSeconds(1);
 
         CD2.SetActive(true);
+        s.playSound(3);
         yield return new WaitForSeconds(1);
 
         CD1.SetActive(true);
+        s.playSound(4);
         yield return new WaitForSeconds(1);
 
         CDEpic.SetActive(true);
+        s.playSound(5);
         yield return new WaitForSeconds(1);
         startup = false;
     }

@@ -40,11 +40,18 @@ public class winCheck : MonoBehaviour {
 		
 	}
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        int number = (int)Random.Range(6,9);
 
+        SoundHandler.soundHandler.playSound(number);
+        
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!checkwin)
+        if (!checkwin)
         {
+            
             if (collision.gameObject.tag == "GoalCheck")
             {
                 print(collision.transform.parent.parent.name);
@@ -52,14 +59,15 @@ public class winCheck : MonoBehaviour {
                 {
                     scoreCounter.GetComponent<ScoreCounter>().player1Score++;
 
-                    win(wintext1, p2score);
+                    win(wintext1, p2score, 1);
                 }
                 else if (collision.transform.parent.parent.name == "Player2")
                 {
                     scoreCounter.GetComponent<ScoreCounter>().player2Score++;
 
-                    win(wintext2, p1score);
+                    win(wintext2, p1score, 0);
                 }
+                
 
                 //Gør sådan at den ikke trigger flere gange.
                 checkwin = true;
@@ -67,11 +75,12 @@ public class winCheck : MonoBehaviour {
         }
     }
 
-    void win(GameObject epicwintext, GameObject score)
+    void win(GameObject epicwintext, GameObject score, int soundClip)
     {
         epicwintext.SetActive(true);
         Text scoreText = score.GetComponent<Text>();
         scoreText.text = "Score: " + scoreCounter.GetComponent<ScoreCounter>().player1Score;
+        SoundHandler.soundHandler.playSound(soundClip);
         StartCoroutine(ResetPositions());
     }
 
