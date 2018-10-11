@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameHandling : MonoBehaviour {
 
@@ -8,11 +9,13 @@ public class GameHandling : MonoBehaviour {
     public GameObject player2;
     public GameObject ball;
 
-    //Countdown objekter
+    //Countdown UI objekter
     public GameObject CD3;
     public GameObject CD2;
     public GameObject CD1;
     public GameObject CDEpic;
+
+    public GameObject ScoreCountObj;
 
     public bool startup = true;
 
@@ -24,7 +27,14 @@ public class GameHandling : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ScoreCountObj = GameObject.Find("ScoreCounter");
+            ScoreCountObj.GetComponent<ScoreCounter>().player1Score = 0;
+            ScoreCountObj.GetComponent<ScoreCounter>().player2Score = 0;
+
+            SceneManager.LoadScene("Menu");
+        }
 	}
 
     public IEnumerator GameStart()

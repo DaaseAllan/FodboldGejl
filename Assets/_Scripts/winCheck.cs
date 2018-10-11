@@ -16,16 +16,22 @@ public class winCheck : MonoBehaviour {
     public GameObject gameHandler;
     public GameObject scoreCounter;
 
+    //UI Gejl
     public GameObject p2score;
     public GameObject p1score;
+    public GameObject restartText;
 
     public float timerCD;
 
     private bool checkwin = false;
 
+    private bool canRestartgame = false;
+
 	// Use this for initialization
 	void Start () {
 
+        canRestartgame = false;
+            
         scoreCounter = GameObject.FindGameObjectWithTag("ScoreCounter");
 
         Text p1text = p1score.GetComponent<Text>();
@@ -37,7 +43,10 @@ public class winCheck : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(canRestartgame && Input.GetButtonUp("Fire1"))
+        {
+            SceneManager.LoadScene("Main");
+        }
 	}
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -98,7 +107,9 @@ public class winCheck : MonoBehaviour {
     public IEnumerator ResetPositions()
     {
         yield return new WaitForSeconds(timerCD);
-        SceneManager.LoadScene("Main");
+        restartText.SetActive(true);
+        canRestartgame = true;
+
 
     }
 }
