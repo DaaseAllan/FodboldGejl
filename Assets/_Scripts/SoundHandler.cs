@@ -8,12 +8,33 @@ public class SoundHandler : MonoBehaviour {
     public static SoundHandler soundHandler;
     public AudioClip[] sounds;
 
-	void Start () {
+    private static bool created = false;
+
+    void Awake()
+    {
+        if (created)
+        {
+            Destroy(this.gameObject);
+        }
+
+        if (!created)
+        {
+            DontDestroyOnLoad(this.gameObject);
+            created = true;
+            //Debug.Log("Awake: " + this.gameObject);
+        }
+
+    }
+
+    void Start()
+    {
         soundHandler = GetComponent<SoundHandler>();
         audioSource = GetComponent<AudioSource>();
-	}
 
-	public void playSound(int s)
+        audioSource.Play();
+    }
+
+    public void playSound(int s)
     {
         audioSource.PlayOneShot(sounds[s]);
     }
