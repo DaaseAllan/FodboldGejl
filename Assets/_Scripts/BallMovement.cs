@@ -43,13 +43,13 @@ public class BallMovement : MonoBehaviour {
 
 
         //Stuck check
-        if (stuckCheckCounterX >= 10)
+        if (stuckCheckCounterX >= 5)
         {
             Debug.Log("XXXXXX");
             rb.AddForce(transform.right * (speed + acceleration),ForceMode2D.Impulse);
             stuckCheckCounterX = 0;
         }
-        if (stuckCheckCounterY >= 10)
+        if (stuckCheckCounterY >= 5)
         {
             Debug.Log("YYYYYY");
  
@@ -60,7 +60,7 @@ public class BallMovement : MonoBehaviour {
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(transform.position.x < stuckCheckX + 2 && transform.position.x > stuckCheckX - 2)
+        if(transform.position.x < stuckCheckX + 1 && transform.position.x > stuckCheckX - 1)
         {
             stuckCheckCounterX++;
         }
@@ -70,7 +70,7 @@ public class BallMovement : MonoBehaviour {
         }
         stuckCheckX = transform.position.x;
 
-        if (transform.position.y < stuckCheckY + 2 && transform.position.y > stuckCheckY - 2)
+        if (transform.position.y < stuckCheckY + 1 && transform.position.y > stuckCheckY - 1)
         {
             stuckCheckCounterY++;
         }
