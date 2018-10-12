@@ -3886,7 +3886,7 @@ MonoBehaviour:
   p2score: {fileID: 1276806746}
   p1score: {fileID: 1513813897}
   restartText: {fileID: 492392167}
-  timerCD: 5
+  timerCD: 2
 --- !u!1 &1853617522
 GameObject:
   m_ObjectHideFlags: 0
